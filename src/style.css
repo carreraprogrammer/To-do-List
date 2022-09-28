@@ -35,7 +35,7 @@ body {
   margin-left: 12px;
 }
 
-.fa-arrows-rotate{
+.fa-arrows-rotate {
   margin-right: 12px;
   cursor: pointer;
 }
@@ -64,7 +64,7 @@ body {
 .task {
   height: 40px;
   width: 100%;
-  display: flex; 
+  display: flex;
   text-decoration: none;
   border-bottom: 2px solid rgba(128, 128, 128, 0.352);
   align-items: center;
@@ -93,7 +93,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 3px solid rgba(128, 128, 128, 0.352);
-  background-color:rgba(230, 226, 226, 0.283);
+  background-color: rgba(230, 226, 226, 0.283);
   cursor: pointer;
 }
 
