@@ -1,0 +1,102 @@
+/******** Reset *********/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/******* Main section *********/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column-reverse;
+  background-color: #f4f5f0;
+}
+
+#title-container {
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin-left: 12px;
+}
+
+.fa-arrows-rotate {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+#add-task {
+  height: 40px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  padding-left: 12px;
+}
+
+.list-section {
+  height: auto;
+  width: 30%;
+  border: 2px solid rgba(128, 128, 128, 0.352);
+  border-bottom: 1px solid transparent;
+  background-color: white;
+}
+
+.display-list {
+  width: 100%;
+  height: auto;
+}
+
+.task {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task:last-child {
+  border: none;
+}
+
+.checkbox {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.fa-ellipsis-vertical {
+  position: relative;
+  margin-right: 12px;
+  cursor: move;
+}
+
+#clear-btn {
+  height: 50px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(128, 128, 128, 0.352);
+  background-color: rgba(230, 226, 226, 0.283);
+  cursor: pointer;
+}
+
+#clear-btn:hover {
+  text-decoration: underline;
+}
