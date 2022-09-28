@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://carreraprogrammer.github.io/To-do-List/)
+[Live Demo Link](https://carreraprogrammer.github.io/To-do-List/dist)
 
 
 ## Getting Started
