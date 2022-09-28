@@ -1,5 +1,5 @@
 import './style.css';
-import _ from 'lodash';
+
 
 // Create a ul element 
 const listSection = document.querySelector('section');
