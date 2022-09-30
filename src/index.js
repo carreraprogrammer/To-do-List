@@ -1,5 +1,6 @@
 import './style.css';
-import { Task, tasks } from './modules/task'
+import { Task } from './modules/task'
+import { LocalStorage } from './modules/local-storage'
 
 // Create a ul element 
 const listSection = document.querySelector('section');
@@ -15,6 +16,8 @@ ul.classList.add('display-list');
 class DisplayList {
 
   static showList() {
+
+    const tasks = LocalStorage.getTasks();
 
     const displayList = document.querySelector('.display-list');
     displayList.innerHTML = '';
@@ -42,11 +45,15 @@ export { DisplayList }
 const addTask = document.getElementById('add-task');
 const submitBtn = document.querySelector('.submit-button');
 
-submitBtn.addEventListener('click', function() {
+submitBtn.addEventListener('click', function(e) {
+  e.preventDefault();
   if(addTask.value > 0) {
+    const tasks = LocalStorage.getTasks();
     const task = new Task(addTask.value, tasks.length);
-    tasks.push(task);
+    Task.addTask(task);
+    LocalStorage.addTask(task);
     DisplayList.showList();
     addTask.value = '';
+    alert(' THIS F****')
   }
 })

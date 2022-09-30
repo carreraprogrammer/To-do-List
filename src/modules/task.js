@@ -1,30 +1,5 @@
 import { LocalStorage } from "./local-storage";
 
-// Create tasks array 
-
-const tasks = [
-    {
-      description:'Make the bed',
-      completed: true,
-      id: 1
-    },
-    {
-      description:'Study for the exam',
-      completed: false,
-      id: 2
-    },
-    {
-      description:'Do some excersise',
-      completed: false,
-      id: 3
-    },
-    {
-      description:'Do the laundry',
-      completed: false,
-      id: 4
-    }
-  ]
-
 // The class Task have the methods for select task, add task and remove task from list
 
 class Task {
@@ -54,5 +29,6 @@ class Task {
           });
       }
     }
+
   
-  export { Task, tasks } 
+  export { Task } 
