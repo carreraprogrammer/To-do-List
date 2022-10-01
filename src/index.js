@@ -25,9 +25,7 @@ class DisplayList {
     
     tasks.map((task) => {
     const taskString = `
-    <li class='task' id=${tasks.indexOf(task)}>
-      <input type="text" class="edit ocult"/>
-      <div class="input-container"><input type="checkbox" class='checkbox'>${task.description}</div>
+    <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox'>${task.description}</div>
       <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
     </li>
     `
@@ -70,8 +68,11 @@ submitBtn.addEventListener('click', function(e) {
 const editBtn = document.querySelectorAll('.fa-pencil');
 
 editBtn.forEach((element) => {
-  element.addEventListener('click', () => {
-    element.target.previusSibling.classList.remove('ocult')
+  element.addEventListener('click', (e) => {
+   e.target.parentElement.firstChild.classList.toggle('ocult');
+   e.target.parentElement.firstChild.nextSibling.classList.toggle('ocult');
+   e.target.parentElement.classList.toggle('select');
+   e.target.nextSibling.classList.toggle('ocult');
   })
 }
 )
