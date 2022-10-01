@@ -1,4 +1,5 @@
 import { LocalStorage } from "./local-storage";
+import { DisplayList } from "../index"
 
 // The class Task have the methods for select task, add task and remove task from list
 
@@ -26,6 +27,7 @@ class Task {
         return trash.addEventListener('click', (e) => {
             e.target.parentElement.remove();
             LocalStorage.removeTask(e.target.parentElement.id);
+            DisplayList.showList();
           });
       }
     }

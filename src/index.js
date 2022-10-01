@@ -25,7 +25,7 @@ class DisplayList {
     
     tasks.map((task) => {
     const taskString = `
-    <li class='task' id=${task.id}><div><input type="checkbox" class='checkbox'>${task.description}</div><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-regular fa-trash-can ocult"></i></li>
+    <li class='task' id=${tasks.indexOf(task)}><div><input type="checkbox" class='checkbox'>${task.description}</div><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-regular fa-trash-can ocult"></i></li>
     `
     const taskHtml = parser.parseFromString(taskString, 'text/html').body.firstChild;
     displayList.appendChild(taskHtml);
@@ -58,3 +58,4 @@ submitBtn.addEventListener('click', function(e) {
     addTask.value = '';
   }
 })
+
