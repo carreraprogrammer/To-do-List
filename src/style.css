@@ -132,6 +132,10 @@ body {
   transform: scale(1.2);
 }
 
+.input-container {
+  width: 100%;
+}
+
 .fa-ellipsis-vertical.ocult {
   display: none;
 }
@@ -141,6 +145,14 @@ body {
   margin-right: 12px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+}
+
+.fa-pencil {
+  margin-right: 12px;
+}
+
+.fa-pencil:hover {
+  transform: scale(1.2);
 }
 
 .fa-trash-can:hover {
@@ -160,4 +172,13 @@ body {
 
 #clear-btn:hover {
   text-decoration: underline;
+}
+
+/* Edit section */
+
+.edit {
+  width: 95%;
+  padding-left: 12px;
+  height: 100%;
+  border: none;
 }

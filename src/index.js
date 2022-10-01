@@ -25,7 +25,11 @@ class DisplayList {
     
     tasks.map((task) => {
     const taskString = `
-    <li class='task' id=${tasks.indexOf(task)}><div><input type="checkbox" class='checkbox'>${task.description}</div><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-regular fa-trash-can ocult"></i></li>
+    <li class='task' id=${tasks.indexOf(task)}>
+      <input type="text" class="edit ocult"/>
+      <div class="input-container"><input type="checkbox" class='checkbox'>${task.description}</div>
+      <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
+    </li>
     `
     const taskHtml = parser.parseFromString(taskString, 'text/html').body.firstChild;
     displayList.appendChild(taskHtml);
@@ -34,6 +38,8 @@ class DisplayList {
     Task.selectTask(selectBtn);
     const trashBtn = taskHtml.querySelector('.fa-trash-can');
     Task.deleteTask(trashBtn);
+    const edit = taskHtml.querySelector('.edit');
+    edit.value = task.description;
     })  
   }
 }
@@ -59,3 +65,13 @@ submitBtn.addEventListener('click', function(e) {
   }
 })
 
+// create event to edit
+
+const editBtn = document.querySelectorAll('.fa-pencil');
+
+editBtn.forEach((element) => {
+  element.addEventListener('click', () => {
+    element.target.previusSibling.classList.remove('ocult')
+  })
+}
+)

@@ -20,6 +20,7 @@ class Task {
             e.target.parentElement.classList.toggle('select');
             e.target.classList.toggle('ocult');
             e.target.nextSibling.classList.remove('ocult');
+            e.target.nextSibling.nextSibling.classList.remove('ocult');
           });
       }
     
