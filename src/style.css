@@ -22,10 +22,19 @@ body {
   background-color: #f4f5f0;
 }
 
+.ocult {
+  display: none;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: gray;
+}
+
 #title-container {
   width: 100%;
   height: 40px;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.352);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,12 +49,33 @@ body {
   cursor: pointer;
 }
 
-#add-task {
+#task-form {
+  display: flex;
   height: 40px;
   width: 100%;
   border: none;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  justify-content: space-between;
+}
+
+.submit-button,
+#add-task {
+  border: none;
+  background-color: transparent;
+}
+
+#add-task {
   padding-left: 12px;
+  width: 95%;
+}
+
+.submit-button {
+  margin-right: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+#add-task::placeholder {
+  font-style: italic;
 }
 
 .list-section {
@@ -66,24 +96,69 @@ body {
   width: 100%;
   display: flex;
   text-decoration: none;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.352);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.352);
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.task.select {
+  background-color: rgba(255, 255, 0, 0.427);
 }
 
 .task:last-child {
   border: none;
 }
 
+.task:first-child {
+  border-top: 1px solid rgba(128, 128, 128, 0.352);
+}
+
 .checkbox {
   margin-left: 12px;
   margin-right: 12px;
+  cursor: pointer;
 }
 
 .fa-ellipsis-vertical {
   position: relative;
   margin-right: 12px;
   cursor: move;
+  color: gray;
+  width: 5%;
+}
+
+.fa-ellipsis-vertical:hover {
+  color: black;
+  transform: scale(1.2);
+}
+
+.input-container {
+  width: 100%;
+}
+
+.fa-ellipsis-vertical.ocult {
+  display: none;
+}
+
+.fa-trash-can {
+  position: relative;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-pencil {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.fa-pencil:hover {
+  transform: scale(1.2);
+}
+
+.fa-trash-can:hover {
+  transform: scale(1.2);
 }
 
 #clear-btn {
@@ -92,11 +167,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgba(128, 128, 128, 0.352);
+  border: 1px solid rgba(128, 128, 128, 0.352);
   background-color: rgba(230, 226, 226, 0.283);
   cursor: pointer;
 }
 
 #clear-btn:hover {
   text-decoration: underline;
+}
+
+/* Edit section */
+
+.edit {
+  width: 95%;
+  padding-left: 38px;
+  height: 100%;
+  border: none;
 }
