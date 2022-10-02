@@ -4,6 +4,7 @@ import { DisplayList } from "../index"
 // The class Task have the methods for select task, add task and remove task from list
 
 class Task {
+
     constructor(description, id) {
         this.description = description;
         this.id = id;
@@ -22,6 +23,16 @@ class Task {
             e.target.nextSibling.classList.remove('ocult');
             e.target.nextSibling.nextSibling.classList.remove('ocult');
           });
+      }
+
+      static editTask(editBtn) {
+        return editBtn.addEventListener('click', (e) => {
+          e.target.parentElement.firstChild.classList.toggle('ocult');
+          e.target.parentElement.firstChild.focus();
+          e.target.parentElement.firstChild.nextSibling.classList.toggle('ocult');
+          e.target.parentElement.classList.toggle('select');
+          e.target.nextSibling.classList.toggle('ocult');
+        })
       }
     
       static deleteTask(trash) {

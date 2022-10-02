@@ -25,7 +25,7 @@ class DisplayList {
     
     tasks.map((task) => {
     const taskString = `
-    <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox'>${task.description}</div>
+    <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox'><label class='label'>${task.description}</label></div>
       <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
     </li>
     `
@@ -36,8 +36,29 @@ class DisplayList {
     Task.selectTask(selectBtn);
     const trashBtn = taskHtml.querySelector('.fa-trash-can');
     Task.deleteTask(trashBtn);
-    const edit = taskHtml.querySelector('.edit');
-    edit.value = task.description;
+    const editBtn = taskHtml.querySelector('.fa-pencil');
+    const input = taskHtml.querySelector('.edit');
+    input.value = task.description;
+    Task.editTask(editBtn);
+    const label = taskHtml.querySelector('.label');
+
+      editBtn.addEventListener('click',() => {
+        if(input.value.length > 0) {
+          label.textContent = `${input.value}`;
+          task.description = `${input.value}`;
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+      }
+     )
+     input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        label.textContent = `${input.value}`;
+        task.description = `${input.value}`;
+        const taskIndex = tasks.indexOf(task);
+        tasks[taskIndex].description = `${input.value}`;
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+  });
     })  
   }
 }
@@ -64,15 +85,3 @@ submitBtn.addEventListener('click', function(e) {
 })
 
 // create event to edit
-
-const editBtn = document.querySelectorAll('.fa-pencil');
-
-editBtn.forEach((element) => {
-  element.addEventListener('click', (e) => {
-   e.target.parentElement.firstChild.classList.toggle('ocult');
-   e.target.parentElement.firstChild.nextSibling.classList.toggle('ocult');
-   e.target.parentElement.classList.toggle('select');
-   e.target.nextSibling.classList.toggle('ocult');
-  })
-}
-)

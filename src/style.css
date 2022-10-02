@@ -125,6 +125,7 @@ body {
   margin-right: 12px;
   cursor: move;
   color: gray;
+  width: 5%;
 }
 
 .fa-ellipsis-vertical:hover {
@@ -149,6 +150,7 @@ body {
 
 .fa-pencil {
   margin-right: 12px;
+  margin-left: 12px;
 }
 
 .fa-pencil:hover {
