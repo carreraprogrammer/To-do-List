@@ -41,24 +41,25 @@ class DisplayList {
     input.value = task.description;
     Task.editTask(editBtn);
     const label = taskHtml.querySelector('.label');
+    let clickCounter = 0;
 
-      editBtn.addEventListener('click',() => {
+      editBtn.addEventListener('click',(e) => {
         if(input.value.length > 0) {
           label.textContent = `${input.value}`;
           task.description = `${input.value}`;
           localStorage.setItem('tasks', JSON.stringify(tasks));
+          e.target.parentElement.classList.remove('select');
+          clickCounter++; 
+          console.log(clickCounter);
+          if(clickCounter >= 2){
+            editBtn.classList.toggle('ocult');
+            trashBtn.classList.toggle('ocult');
+            selectBtn.classList.toggle('ocult');
+            clickCounter = 0;
+          }
         }
       }
      )
-     input.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        label.textContent = `${input.value}`;
-        task.description = `${input.value}`;
-        const taskIndex = tasks.indexOf(task);
-        tasks[taskIndex].description = `${input.value}`;
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-      }
-  });
     })  
   }
 }
