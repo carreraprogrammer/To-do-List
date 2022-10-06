@@ -1,3 +1,5 @@
+/* stylelint-disable csstree/validator */
+
 /******** Reset *********/
 
 *,
@@ -10,6 +12,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --purple: rgb(140, 53, 115);
+  --soft-purple: rgba(140, 53, 115, 0.183);
+}
+
 /******* Main section *********/
 
 body {
@@ -19,7 +26,7 @@ body {
   height: 100vh;
   width: 100%;
   flex-direction: column-reverse;
-  background-color: #f4f5f0;
+  background-color: var(--soft-purple);
 }
 
 .ocult {
@@ -34,7 +41,7 @@ body {
 #title-container {
   width: 100%;
   height: 40px;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.352);
+  border-bottom: 1px solid var(--purple);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,6 +54,12 @@ body {
 .fa-arrows-rotate {
   margin-right: 12px;
   cursor: pointer;
+  color: var(--purple);
+}
+
+.fa-arrows-rotate:hover {
+  transform: scale(1.1);
+  color: var(--purple);
 }
 
 #task-form {
@@ -69,9 +82,17 @@ body {
 }
 
 .submit-button {
-  margin-right: 12px;
-  margin-left: 12px;
   cursor: pointer;
+  font-size: 1rem;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  font-size: 1.1rem;
+  background-color: var(--soft-purple);
+  border: 1px solid var(--purple);
 }
 
 #add-task::placeholder {
@@ -81,7 +102,7 @@ body {
 .list-section {
   height: auto;
   width: 30%;
-  border: 2px solid rgba(128, 128, 128, 0.352);
+  border: 1px solid var(--purple);
   border-bottom: 1px solid transparent;
   background-color: white;
 }
@@ -96,14 +117,21 @@ body {
   width: 100%;
   display: flex;
   text-decoration: none;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.352);
+  border-bottom: 1px solid var(--purple);
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
 }
 
+input:checked + label {
+  text-decoration: line-through;
+  text-decoration-color: var(--purple);
+  color: var(--purple);
+}
+
 .task.select {
-  background-color: rgba(255, 255, 0, 0.427);
+  background-color: var(--soft-purple);
+  border: 1px solid var(--purple);
 }
 
 .task:last-child {
@@ -111,7 +139,19 @@ body {
 }
 
 .task:first-child {
-  border-top: 1px solid rgba(128, 128, 128, 0.352);
+  border-top: 1px solid var(--purple);
+}
+
+.task:last-child.select {
+  border: 1px solid var(--purple);
+}
+
+.task:first-child.select {
+  border-top: 1px solid var(--purple);
+}
+
+input[type=checkbox] {
+  accent-color: var(--soft-purple);
 }
 
 .checkbox {
@@ -122,10 +162,10 @@ body {
 
 .fa-ellipsis-vertical {
   position: relative;
-  margin-right: 12px;
   cursor: move;
-  color: gray;
-  width: 5%;
+  margin-right: 12px;
+  color: var(--purple);
+  transition: transform 0.5s ease-in-out;
 }
 
 .fa-ellipsis-vertical:hover {
@@ -151,6 +191,7 @@ body {
 .fa-pencil {
   margin-right: 12px;
   margin-left: 12px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .fa-pencil:hover {
@@ -167,13 +208,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(128, 128, 128, 0.352);
+  border: 1px solid var(--purple);
   background-color: rgba(230, 226, 226, 0.283);
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 
 #clear-btn:hover {
-  text-decoration: underline;
+  font-size: 1.05rem;
+  font-weight: 400;
+  background-color: var(--soft-purple);
 }
 
 /* Edit section */
