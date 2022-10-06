@@ -31,11 +31,19 @@ class DisplayList {
     `
     const taskHtml = parser.parseFromString(taskString, 'text/html').body.firstChild;
     displayList.appendChild(taskHtml);
+    
+    // Add event to select one task
 
     const selectBtn = taskHtml.querySelector('.fa-ellipsis-vertical');
     Task.selectTask(selectBtn);
+
+    //Add event to delete Task
+
     const trashBtn = taskHtml.querySelector('.fa-trash-can');
     Task.deleteTask(trashBtn);
+
+    // Add event to edit the task 
+    
     const editBtn = taskHtml.querySelector('.fa-pencil');
     const input = taskHtml.querySelector('.edit');
     input.value = task.description;
@@ -85,4 +93,34 @@ submitBtn.addEventListener('click', function(e) {
   }
 })
 
-// create event to edit
+// create event to edit the completed task
+
+const checkbox = document.querySelectorAll('.checkbox');
+
+const completed = () => {
+  checkbox.forEach((check) => {  
+  check.addEventListener('click', () => {
+    const indexString = check.parentElement.parentElement.id;
+    const tasks = LocalStorage.getTasks();
+    const index = parseInt(indexString, 10);
+    if(check.checked) {
+     for(let i = 0; i < tasks.length; i++) {
+      if(tasks[i].id === index){
+        console.log(tasks);
+        tasks[i].completed = true;
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+    }
+  }else{
+    for(let i = 0; i < tasks.length; i++) {
+      if(tasks[i].id === index){
+        console.log(tasks);
+        tasks[i].completed = false;
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+    }
+  }})
+})
+}
+
+completed();
