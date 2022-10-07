@@ -1,5 +1,6 @@
 import { LocalStorage } from "./local-storage";
 import { DisplayList } from "../index"
+import { changeId } from "./changeId"
 
 // The class Task have the methods for select task, add task and remove task from list
 
@@ -40,6 +41,7 @@ class Task {
             e.target.parentElement.remove();
             LocalStorage.removeTask(e.target.parentElement.id);
             DisplayList.showList();
+            changeId();
           });
       }
     }
