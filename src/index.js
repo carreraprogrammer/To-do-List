@@ -1,7 +1,9 @@
 import './style.css';
 import { Task } from './modules/task'
 import { LocalStorage } from './modules/local-storage'
-
+import { completed } from './modules/completed-task'
+import { deleteCompleted } from './modules/delete-completed';
+ 
 // Create a ul element 
 const listSection = document.querySelector('section');
 listSection.classList.add('list-section');
@@ -24,14 +26,33 @@ class DisplayList {
     const parser = new DOMParser();
     
     tasks.map((task) => {
-    const taskString = `
-    <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
-      <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
-    </li>
-    `
+
+      let taskString = '';
+
+      if(task.completed === true) {
+        taskString = `
+        <li class='task completed' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' checked id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
+          <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
+        </li>
+        `
+
+      } else if(task.completed === false ){
+        taskString = `
+        <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
+          <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
+        </li>
+        `
+      }
+
     const taskHtml = parser.parseFromString(taskString, 'text/html').body.firstChild;
     displayList.appendChild(taskHtml);
     
+    //Add event to complete a task 
+
+    const checkbox = taskHtml.querySelector('.checkbox');
+   
+    completed(checkbox, task, tasks);
+
     // Add event to select one task
 
     const selectBtn = taskHtml.querySelector('.fa-ellipsis-vertical');
@@ -68,7 +89,7 @@ class DisplayList {
         }
       }
      )
-    })  
+    })
   }
 }
 
@@ -76,7 +97,7 @@ DisplayList.showList();
 
 export { DisplayList }
 
-// Create event to 
+// Create event to add new task
 
 const addTask = document.getElementById('add-task');
 const submitBtn = document.querySelector('.submit-button');
@@ -93,34 +114,8 @@ submitBtn.addEventListener('click', function(e) {
   }
 })
 
-// create event to edit the completed task
 
-const checkbox = document.querySelectorAll('.checkbox');
 
-const completed = () => {
-  checkbox.forEach((check) => {  
-  check.addEventListener('click', () => {
-    const indexString = check.parentElement.parentElement.id;
-    const tasks = LocalStorage.getTasks();
-    const index = parseInt(indexString, 10);
-    if(check.checked) {
-     for(let i = 0; i < tasks.length; i++) {
-      if(tasks[i].id === index){
-        console.log(tasks);
-        tasks[i].completed = true;
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-      }
-    }
-  }else{
-    for(let i = 0; i < tasks.length; i++) {
-      if(tasks[i].id === index){
-        console.log(tasks);
-        tasks[i].completed = false;
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-      }
-    }
-  }})
-})
-}
+//add event to delete completed tasks
 
-completed();
+deleteCompleted();
