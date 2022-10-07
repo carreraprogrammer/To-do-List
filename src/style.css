@@ -27,6 +27,20 @@ body {
   width: 100%;
   flex-direction: column-reverse;
   background-color: var(--soft-purple);
+  font-family: 'Lato', sans-serif;
+}
+
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.fa-circle-dot {
+  color: var(--purple);
+  font-size: 0.5rem;
 }
 
 .ocult {
