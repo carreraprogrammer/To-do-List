@@ -27,20 +27,20 @@ body {
   width: 100%;
   flex-direction: column-reverse;
   background-color: var(--soft-purple);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .logo {
   position: absolute;
   top: 24px;
   left: 24px;
-  font-size: 1.3rem;
-  font-weight: bolder;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .fa-circle-dot {
   color: var(--purple);
-  font-size: 0.5rem;
+  font-size: 0.3rem;
 }
 
 .ocult {
@@ -59,6 +59,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Oswald', sans-serif;
+  color: var(--purple);
+  font-size: 1.3rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .list-title {
@@ -226,12 +231,15 @@ input[type=checkbox] {
   background-color: rgba(230, 226, 226, 0.283);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  font-family: 'Oswald', sans-serif;
+  color: var(--purple);
 }
 
 #clear-btn:hover {
   font-size: 1.05rem;
   font-weight: 400;
   background-color: var(--soft-purple);
+  color: black;
 }
 
 /* Edit section */
