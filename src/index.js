@@ -4,6 +4,7 @@ import { LocalStorage } from './modules/local-storage'
 import { completed } from './modules/completed-task'
 import { deleteCompleted } from './modules/delete-completed';
 import { changeTask } from './modules/Drag&Drop'
+import { refresh } from './modules/refresh-list'
  
 // Create a ul element 
 const listSection = document.querySelector('section');
@@ -126,4 +127,8 @@ deleteCompleted();
 // add event to change task position
 
 changeTask()
+
+// add event to refresh list
+
+refresh();
 
