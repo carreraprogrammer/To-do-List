@@ -3,6 +3,7 @@ import { Task } from './modules/task'
 import { LocalStorage } from './modules/local-storage'
 import { completed } from './modules/completed-task'
 import { deleteCompleted } from './modules/delete-completed';
+import { changeTask } from './modules/Drag&Drop'
  
 // Create a ul element 
 const listSection = document.querySelector('section');
@@ -31,14 +32,15 @@ class DisplayList {
 
       if(task.completed === true) {
         taskString = `
-        <li class='task completed' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' checked id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
+        <li draggable='true' class='task completed container' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' checked id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
           <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
         </li>
+        
         `
 
       } else if(task.completed === false ){
         taskString = `
-        <li class='task' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
+        <li draggable='true' class='task container' id=${tasks.indexOf(task)}><input type="text" class="edit ocult"/><div class="input-container"><input type="checkbox" class='checkbox' id='check${tasks.indexOf(task)}'><label for='check${tasks.indexOf(task)}' class='label'>${task.description}</label></div>
           <i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-pencil ocult"></i><i class="fa-regular fa-trash-can ocult"></i>
         </li>
         `
@@ -88,8 +90,9 @@ class DisplayList {
           }
         }
       }
-     )
+      )
     })
+    changeTask()
   }
 }
 
@@ -119,3 +122,8 @@ submitBtn.addEventListener('click', function(e) {
 //add event to delete completed tasks
 
 deleteCompleted();
+
+// add event to change task position
+
+changeTask()
+
