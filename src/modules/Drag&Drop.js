@@ -7,7 +7,7 @@ import { DisplayList } from "../index"
   // I will take the element and I change the id of the element for the id of the container
   // I add one to all the elements below the new element
   
-  function changeTask() {
+const changeTask = () => {
 
     const taskDraggable = document.querySelectorAll('.task');
     const container = document.querySelectorAll('.container');
