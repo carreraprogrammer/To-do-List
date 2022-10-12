@@ -82,7 +82,6 @@ class DisplayList {
           localStorage.setItem('tasks', JSON.stringify(tasks));
           e.target.parentElement.classList.remove('select');
           clickCounter++; 
-          console.log(clickCounter);
           if(clickCounter >= 2){
             editBtn.classList.toggle('ocult');
             trashBtn.classList.toggle('ocult');
@@ -117,8 +116,6 @@ submitBtn.addEventListener('click', function(e) {
     addTask.value = '';
   }
 })
-
-
 
 //add event to delete completed tasks
 
