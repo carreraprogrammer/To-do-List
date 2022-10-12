@@ -7,7 +7,7 @@ import { DisplayList } from "../index"
   // I will take the element and I change the id of the element for the id of the container
   // I add one to all the elements below the new element
   
-  function changeTask() {
+const changeTask = () => {
 
     const taskDraggable = document.querySelectorAll('.task');
     const container = document.querySelectorAll('.container');
@@ -45,12 +45,10 @@ import { DisplayList } from "../index"
     
       cont.addEventListener('drop', () => {
         dessiredIndex = parseInt(cont.id)
-        console.log(dessiredIndex);
         if(actualIndex > dessiredIndex){
           tasks.splice(dessiredIndex, 0, tasks[actualIndex]);
           tasks.splice(actualIndex + 1, 1);
           localStorage.setItem('tasks', JSON.stringify(tasks));
-          console.log(tasks);
           tasks.forEach((task) =>{
             task.id = tasks.indexOf(task)
           })
@@ -59,7 +57,6 @@ import { DisplayList } from "../index"
           tasks.splice(dessiredIndex + 1, 0, tasks[actualIndex]);
           tasks.splice(actualIndex, 1);
           localStorage.setItem('tasks', JSON.stringify(tasks));
-          console.log(tasks)
           tasks.forEach((task) =>{
             task.id = tasks.indexOf(task)
           })

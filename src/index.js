@@ -2,7 +2,7 @@ import './style.css';
 import { Task } from './modules/task'
 import { LocalStorage } from './modules/local-storage'
 import { completed } from './modules/completed-task'
-import { deleteCompleted } from './modules/delete-completed';
+import { deleteCompletedTask } from './modules/delete-completed';
 import { changeTask } from './modules/Drag&Drop'
 import { refresh } from './modules/refresh-list'
  
@@ -82,7 +82,6 @@ class DisplayList {
           localStorage.setItem('tasks', JSON.stringify(tasks));
           e.target.parentElement.classList.remove('select');
           clickCounter++; 
-          console.log(clickCounter);
           if(clickCounter >= 2){
             editBtn.classList.toggle('ocult');
             trashBtn.classList.toggle('ocult');
@@ -118,11 +117,9 @@ submitBtn.addEventListener('click', function(e) {
   }
 })
 
-
-
 //add event to delete completed tasks
 
-deleteCompleted();
+deleteCompletedTask();
 
 // add event to change task position
 
