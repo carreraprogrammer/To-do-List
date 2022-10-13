@@ -5,6 +5,7 @@ import { completed } from './modules/completed-task'
 import { deleteCompletedTask } from './modules/delete-completed';
 import { changeTask } from './modules/Drag&Drop'
 import { refresh } from './modules/refresh-list'
+import { createTask } from './modules/add-task'
  
 // Create a ul element 
 const listSection = document.querySelector('section');
@@ -103,19 +104,8 @@ export { DisplayList }
 // Create event to add new task
 
 const addTask = document.getElementById('add-task');
-const submitBtn = document.querySelector('.submit-button');
 
-submitBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  if(addTask.value.length > 0) {
-    const tasks = LocalStorage.getTasks();
-    const task = new Task(addTask.value, tasks.length);
-    Task.addTask(task);
-    LocalStorage.addTask(task);
-    DisplayList.showList();
-    addTask.value = '';
-  }
-})
+createTask(addTask.value.length) 
 
 //add event to delete completed tasks
 
