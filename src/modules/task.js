@@ -4,7 +4,7 @@ import { changeId } from "./changeId"
 
 // The class Task have the methods for select task, add task and remove task from list
 
-class Task {
+export default class Task {
 
     constructor(description, id) {
         this.description = description;
@@ -13,8 +13,10 @@ class Task {
       }
     
       static addTask(task) {
-        const tasks = LocalStorage.getTasks();
-        tasks.push(task);
+        if(task.description.length > 0) {
+          const tasks = LocalStorage.getTasks();
+          tasks.push(task);
+        }  
       }
     
       static selectTask(select) {
@@ -45,6 +47,3 @@ class Task {
           });
       }
     }
-
-  
-  export { Task } 

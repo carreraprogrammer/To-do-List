@@ -1,26 +1,14 @@
-/* eslint-disable no-undef */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const mode = 'development';
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
-  devServer: {
-    static: './dist',
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
-  optimization: {
-    runtimeChunk: 'single',
-  },
   module: {
     rules: [
       {
@@ -31,11 +19,18 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
-      },
     ],
   },
-  mode,
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    filename: "static/js/[name].js",
+    chunkFilename: "static/js/[name].chunk.js",
+  },
+  devServer: {
+    static: './dist',
+  },
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };

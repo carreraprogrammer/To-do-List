@@ -1,5 +1,5 @@
 import './style.css';
-import { Task } from './modules/task'
+import Task from './modules/task'
 import { LocalStorage } from './modules/local-storage'
 import { completed } from './modules/completed-task'
 import { deleteCompletedTask } from './modules/delete-completed';
@@ -103,9 +103,7 @@ export { DisplayList }
 
 // Create event to add new task
 
-const addTask = document.getElementById('add-task');
-
-createTask(addTask.value.length) 
+createTask() 
 
 //add event to delete completed tasks
 
