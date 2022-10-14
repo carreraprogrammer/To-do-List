@@ -12,9 +12,12 @@ class Task {
         this.completed = false;
       }
     
-      static addTask(task) {
-        const tasks = LocalStorage.getTasks();
-        tasks.push(task);
+      static addTask(task, tasks) {
+        if(task.description.length > 0) {
+          console.log(tasks);
+        } else {
+          return tasks;
+        }
       }
     
       static selectTask(select) {
