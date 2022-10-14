@@ -12,10 +12,10 @@ export default class Task {
         this.completed = false;
       }
     
-      static addTask(task) {
+      static addTask(task, tasks) {
         if(task.description.length > 0) {
-          const tasks = LocalStorage.getTasks();
           tasks.push(task);
+          return tasks;
         }  
       }
     

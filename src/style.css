@@ -27,7 +27,7 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  flex-direction: column-reverse;
+  flex-direction: column;
   background-color: #d2c6c7be;
   font-family: 'Raleway', sans-serif;
 }

@@ -7,10 +7,10 @@ const submitBtn = document.querySelector('.submit-button');
 
 const createTask = () => {submitBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  if(addTask.value.length === 0) {
+  if(addTask.value.length > 0) {
     const tasks = LocalStorage.getTasks();
     const task = new Task(addTask.value, tasks.length);
-    Task.addTask(task);
+    Task.addTask(task, tasks);
     LocalStorage.addTask(task);
     DisplayList.showList();
     addTask.value = '';

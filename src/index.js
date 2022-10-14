@@ -8,11 +8,8 @@ import { refresh } from './modules/refresh-list'
 import { createTask } from './modules/add-task'
  
 // Create a ul element 
-const listSection = document.querySelector('section');
-listSection.classList.add('list-section');
+const listSection = document.querySelector('.list-section');
 const ul  = document.createElement('ul');
-const body = document.querySelector('body');
-body.appendChild(listSection);
 listSection.appendChild(ul);
 ul.classList.add('display-list');
 
@@ -103,7 +100,7 @@ export { DisplayList }
 
 // Create event to add new task
 
-createTask() 
+createTask();
 
 //add event to delete completed tasks
 
