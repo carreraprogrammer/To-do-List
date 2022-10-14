@@ -14,6 +14,12 @@ class Task {
           return tasks;
         }
       }
+
+      static deleteTask(trash) {
+        return trash.addEventListener('click', (e) => {
+            e.target.parentElement.remove();
+          });
+      }
     }
 
   
