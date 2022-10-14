@@ -52,7 +52,7 @@ const changeTask = () => {
           tasks.forEach((task) =>{
             task.id = tasks.indexOf(task)
           })
-          DisplayList.showList();
+          DisplayList.showList(tasks);
         } else {
           tasks.splice(dessiredIndex + 1, 0, tasks[actualIndex]);
           tasks.splice(actualIndex, 1);
@@ -60,7 +60,7 @@ const changeTask = () => {
           tasks.forEach((task) =>{
             task.id = tasks.indexOf(task)
           })
-          DisplayList.showList();
+          DisplayList.showList(tasks);
         }
       })
     })

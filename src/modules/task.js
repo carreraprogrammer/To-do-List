@@ -14,7 +14,8 @@ class Task {
     
       static addTask(task, tasks) {
         if(task.description.length > 0) {
-          console.log(tasks);
+          tasks.push(task)
+          return tasks;
         } else {
           return tasks;
         }
@@ -41,9 +42,10 @@ class Task {
     
       static deleteTask(trash) {
         return trash.addEventListener('click', (e) => {
+            const tasks = LocalStorage.getTasks();
             e.target.parentElement.remove();
             LocalStorage.removeTask(e.target.parentElement.id);
-            DisplayList.showList();
+            DisplayList.showList(tasks);
             changeId();
           });
       }

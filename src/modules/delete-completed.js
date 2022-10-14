@@ -8,7 +8,7 @@ function deleteCompletedTask() {clear.addEventListener('click', () => {
   const newTasks = tasks.filter((task) => task.completed !== true);
   tasks = newTasks;
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  DisplayList.showList();
+  DisplayList.showList(tasks);
 })}
 
 export { deleteCompletedTask }

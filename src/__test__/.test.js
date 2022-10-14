@@ -1,12 +1,8 @@
-import addTask from '../modules/__mocks__/add-task-mock';
+import { Task } from '../modules/__mocks__/task-class-mock';
 
 test('string length is more than 0', () => {
-    const newTask = {
-      description: '',
-      id: 0,
-      completed: false
-    };
+    const newTask = new Task('', 0)
     const tasks = [];
-    const result = addTask(newTask, tasks);
+    const result = Task.addTask(newTask, tasks);
     expect(result.length).toBe(0);
 })
