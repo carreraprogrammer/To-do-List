@@ -1,4 +1,4 @@
-import { Task } from '../modules/__mocks__/task-class-mock';
+import { Task } from '../modules/__mocks__/task-class-mock'
 import DisplayList from '../modules/__mocks__/Display-list-mock'
 
 describe('add and remove tasks', () => {

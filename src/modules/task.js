@@ -51,5 +51,4 @@ class Task {
       }
     }
 
-  
-  export { Task } 
+export { Task }
