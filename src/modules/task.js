@@ -12,9 +12,13 @@ class Task {
         this.completed = false;
       }
     
-      static addTask(task) {
-        const tasks = LocalStorage.getTasks();
-        tasks.push(task);
+      static addTask(task, tasks) {
+        if(task.description.length > 0) {
+          tasks.push(task)
+          return tasks;
+        } else {
+          return tasks;
+        }
       }
     
       static selectTask(select) {
@@ -38,13 +42,13 @@ class Task {
     
       static deleteTask(trash) {
         return trash.addEventListener('click', (e) => {
+            const tasks = LocalStorage.getTasks();
             e.target.parentElement.remove();
             LocalStorage.removeTask(e.target.parentElement.id);
-            DisplayList.showList();
+            DisplayList.showList(tasks);
             changeId();
           });
       }
     }
 
-  
-  export { Task } 
+export { Task }
