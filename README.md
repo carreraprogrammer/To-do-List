@@ -92,19 +92,16 @@ Clone this repository to your desired folder:
 ```sh
   cd my-folder
   git clone git@github.com:carreraprogrammer/To-do-List.git
-``
+```
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
   npm run build
 ```
---->
+
 
 ### Deployment
 
